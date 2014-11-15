@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Eventador</title>
+    <script src="/static/jquery.js"></script>
+    <script src="/static/moment.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.0/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.0/fullcalendar.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.0/fullcalendar.print.css" />
+    <script>
+      $(document).ready(function() {
+        $("#calendar").fullCalendar({
+          eventSources: [{
+            url: '/events',
+            ignoreTimezone: false
+          }]
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="calendar"></div>
+  </body>
+</html>
