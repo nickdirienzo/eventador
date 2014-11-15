@@ -16,7 +16,7 @@ class Mailbot(threading.Thread):
     self.client = gmail_client.login(os.environ.get(USER), os.environ.get(PASS))
 
   def process_inbox(self):
-    unread = self.client.inbox().mail(unread=True)
+    unread = self.client.inbox().mail(unread=True, prefetch=True)
     import pdb
     pdb.set_trace()
 
