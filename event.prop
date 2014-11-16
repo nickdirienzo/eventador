@@ -6,7 +6,7 @@ serializeTo = model.ser.gz
 
 # structure of your training file; this tells the classifier that the 
 # word is in the first column and the answer (label) is in the second column
-map = word=0, answer=1
+map = word=0,answer=1
 
 ##### FEATURES TO TRAIN WITH #####
 
@@ -27,7 +27,7 @@ useWordPairs = true
 
 # use gazettes (examples of classes i.e. "Friend 110")
 useGazettes = true
-gazette = "Friend", "McCosh", "Marquand", "Frist", "Cafe Viv", "Scully", "Lewis", "Common Room", "Mathey", "Dillon", "Forbes", "Robertson"
+gazette = event_gaz.txt
 
 # use combinations of features
 useSequences=true

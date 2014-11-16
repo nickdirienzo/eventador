@@ -1,0 +1,13 @@
+LOCATION Friend
+LOCATION McCosh
+LOCATION Marquand
+LOCATION Frist
+LOCATION Cafe Viv
+LOCATION Scully
+LOCATION Lewis
+LOCATION Common Room
+LOCATION Mathey
+LOCATION Dillon
+LOCATION Forbes
+LOCATION Robertson
+LOCATION Nassau Inn
