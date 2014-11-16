@@ -1,0 +1,40 @@
+# location of training file
+trainFile = event.tsv
+
+# location where you would like to save (serialize to) your classifier
+serializeTo = model.ser.gz
+
+# structure of your training file; this tells the classifier that the 
+# word is in the first column and the answer (label) is in the second column
+map = word=0, answer=1
+
+##### FEATURES TO TRAIN WITH #####
+
+# use how often word appears in training data
+useClassFeature=true 
+
+# use what the word is
+useWord=true
+
+# use previous word
+usePrev=true
+
+# use word after
+useNext=true
+
+# use pairs of words as feature
+useWordPairs = true
+
+# use gazettes (examples of classes i.e. "Friend 110")
+useGazettes = true
+gazette = "Friend", "McCosh", "Marquand", "Frist", "Cafe Viv", "Scully", "Lewis", "Common Room", "Mathey", "Dillon", "Forbes", "Robertson"
+
+# use combinations of features
+useSequences=true
+usePrevSequences=true
+
+# use position in sentence
+usePosition = true
+
+# the number of things to the left of the word that should be saved
+maxLeft = 3
