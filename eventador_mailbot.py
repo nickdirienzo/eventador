@@ -31,8 +31,8 @@ class Mailbot(object):
 
 if __name__ == '__main__':
   unread = Mailbot().get_unread()
-  unread = unread[-3::]
-  with open('test3.tsv', 'w') as tsv:
+  unread = unread[-12::]
+  with open('test4.tsv', 'w') as tsv:
     for u in unread:
         domain = rfc822.parseaddr(u.fr)[-1].split('@')[-1]
         message = u.body.get_payload()

@@ -23,18 +23,19 @@ usePrev=true
 useNext=true
 
 # use pairs of words as feature
-useWordPairs = true
+useWordPairs=true
 
 # use gazettes (examples of classes i.e. "Friend 110")
-useGazettes = true
-gazette = event_gaz.txt
+useGazettes=true
+sloppyGazette=true
+gazette=event_gaz.txt
 
 # use combinations of features
 useSequences=true
 usePrevSequences=true
 
 # use position in sentence
-usePosition = true
+usePosition=true
 
 # the number of things to the left of the word that should be saved
-maxLeft = 3
+maxLeft=3
