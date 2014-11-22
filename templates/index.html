@@ -8,16 +8,30 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.0/fullcalendar.print.css" />
     <script>
       $(document).ready(function() {
+
         $("#calendar").fullCalendar({
           eventSources: [{
             url: '/events',
             ignoreTimezone: false
           }]
         });
+
+        $("#search-box").submit(function(e) {
+          e.preventDefault();
+          $.get("/search?query=" + $("#query").val(), function(data) {
+            console.log(data);
+          });
+        });
+
       });
     </script>
   </head>
   <body>
     <div id="calendar"></div>
+    <br/>
+    <form id="search-box">
+      <input type="text" id="query" placeholder="Search here..." />
+      <input type="submit" />
+    </form>
   </body>
 </html>

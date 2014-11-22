@@ -39,6 +39,9 @@ class Email(Base):
     self.event_end_time = None
     self.eventLocation = None # event location
 
+  def to_json(self):
+    return {'subject': self.subject}
+
 def import_emails(messages):
   for message in messages:
     m = Email(
