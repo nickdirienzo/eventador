@@ -30,10 +30,10 @@ class Email(Base):
   location = Column(Text)
 
   def __init__(self, html=None, text=None, domain=None, author_address=None, author_name=None, subject=None):
-    self.html = htmlBody # email body
-    self.text = textBody
-    self.author_address = emailAddress # author's email address
-    self.author_name = emailAuthor # author's name i.e. Nick
+    self.html = html # email body
+    self.text = text
+    self.author_address = author_address # author's email address
+    self.author_name = author_name # author's name i.e. Nick
     self.domain = domain # domain i.e. princeton.edu
     self.subject = subject # subject i.e. "E-Club meeting!"
     self.start_time = None # event time
@@ -53,6 +53,12 @@ class Email(Base):
 
 def import_emails(messages):
   for message in messages:
+
+    subject = message.subject
+    if 'Fwd: ' in subject:
+      subject = subject.strip('Fwd: ')
+    subject = subject.title()
+
     m = Email(
           html=message.html.as_string(), 
           text=message.body.as_string(), 
@@ -60,9 +66,9 @@ def import_emails(messages):
           author_name=rfc822.parseaddr(message.fr)[0],
           # -1 gets last element in array
           domain=rfc822.parseaddr(message.fr)[-1].split('@')[-1],
-          subject=message.subject
+          subject=subject
         )
-    print 'Adding message:', message.subject
+    print 'Adding message:', subject
     db_session.add(m)
   db_session.commit()
 
@@ -71,8 +77,7 @@ def init_db():
   Base.metadata.create_all(bind=engine)
 
 if __name__ == '__main__':
-  pass
-#  init_db()
+  init_db()
 #
 #  import eventador_mailbot
 #  m = eventador_mailbot.Mailbot()

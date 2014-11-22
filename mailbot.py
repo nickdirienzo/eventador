@@ -24,8 +24,6 @@ class Mailbot(threading.Thread):
 
   def process_inbox(self):
     unread = self.get_unread()
-    if not unread:
-      print 'no email'
     models.import_emails(unread)
     for u in unread:
       u.mark_read()
