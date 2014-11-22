@@ -19,7 +19,11 @@
         $("#search-box").submit(function(e) {
           e.preventDefault();
           $.get("/search?query=" + $("#query").val(), function(data) {
-            console.log(data);
+            console.log(data.emails);
+            for(i in data.emails) {
+              email = data.emails[i];
+              $("#results").append("<p>" + email.subject + "</p>");
+            }
           });
         });
 
@@ -33,5 +37,8 @@
       <input type="text" id="query" placeholder="Search here..." />
       <input type="submit" />
     </form>
+    <div id="results">
+
+    </div>
   </body>
 </html>
