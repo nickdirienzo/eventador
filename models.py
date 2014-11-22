@@ -1,6 +1,7 @@
 from datetime import datetime
 import rfc822
 
+from citext import CIText
 from sqlalchemy import Column, Integer, Text, String, DateTime
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
@@ -11,19 +12,17 @@ engine = create_engine('postgresql://janie:yolo@localhost/eventador')
 db_session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
 
 Base = declarative_base()
-# This allows us to query our models in the session
-Base.query = db_session.query_property()
 
 class Email(Base):
   __tablename__ = 'emails'
 
   id = Column(Integer, primary_key=True)
   htmlBody = Column(Text)
-  textBody = Column(Text)
+  textBody = Column(CIText)
   domain = Column(Text)
   emailAddress = Column(Text)
   emailAuthor = Column(Text)
-  subject = Column(Text)
+  subject = Column(CIText)
   eventTime = Column(DateTime)
   event_end_time = Column(DateTime)
   eventLocation = Column(Text)
