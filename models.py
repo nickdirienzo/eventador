@@ -19,37 +19,45 @@ class Email(Base):
   __tablename__ = 'emails'
 
   id = Column(Integer, primary_key=True)
-  htmlBody = Column(Text)
-  textBody = Column(CIText)
+  html = Column(Text)
+  text = Column(CIText)
   domain = Column(Text)
-  emailAddress = Column(Text)
-  emailAuthor = Column(Text)
+  author_address = Column(Text)
+  author_name = Column(Text)
   subject = Column(CIText)
-  eventTime = Column(DateTime)
-  event_end_time = Column(DateTime)
-  eventLocation = Column(Text)
+  start_time = Column(DateTime)
+  end_time = Column(DateTime)
+  location = Column(Text)
 
-  def __init__(self, htmlBody=None, textBody=None, domain=None, emailAddress=None, emailAuthor=None, subject=None):
-    self.htmlBody = htmlBody # email body
-    self.textBody = textBody
-    self.emailAddress = emailAddress # author's email address
-    self.emailAuthor = emailAuthor # author's name i.e. Nick
+  def __init__(self, html=None, text=None, domain=None, author_address=None, author_name=None, subject=None):
+    self.html = htmlBody # email body
+    self.text = textBody
+    self.author_address = emailAddress # author's email address
+    self.author_name = emailAuthor # author's name i.e. Nick
     self.domain = domain # domain i.e. princeton.edu
     self.subject = subject # subject i.e. "E-Club meeting!"
-    self.eventTime = None # event time
-    self.event_end_time = None
-    self.eventLocation = None # event location
+    self.start_time = None # event time
+    self.end_time = None
+    self.location = None # event location
 
   def to_json(self):
-    return {'subject': self.subject}
+    return {
+      'id': self.id,
+      'html': self.html,
+      'text': self.text,
+      'subject': self.subject,
+      'event_start_time': self.start_time,
+      'event_end_time': self.end_time,
+      'location': self.location
+    }
 
 def import_emails(messages):
   for message in messages:
     m = Email(
-          htmlBody=message.html.as_string(), 
-          textBody=message.body.as_string(), 
-          emailAddress=message.fr, 
-          emailAuthor=rfc822.parseaddr(message.fr)[0],
+          html=message.html.as_string(), 
+          text=message.body.as_string(), 
+          author_address=message.fr, 
+          author_name=rfc822.parseaddr(message.fr)[0],
           # -1 gets last element in array
           domain=rfc822.parseaddr(message.fr)[-1].split('@')[-1],
           subject=message.subject

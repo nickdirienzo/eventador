@@ -39,7 +39,7 @@ def search(domain):
   subject_matches = Email.query.filter(Email.subject.like(sql_query)).all()
   for e in subject_matches:
     emails.add(e)
-  text_matches = Email.query.filter(Email.textBody.like(sql_query)).all()
+  text_matches = Email.query.filter(Email.text.like(sql_query)).all()
   for e in text_matches:
     emails.add(e)
   return flask.jsonify(emails=emails) 
