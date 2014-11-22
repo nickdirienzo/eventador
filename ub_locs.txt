@@ -32,7 +32,39 @@ Flint Village
 Fronczak Hall
 Furnas Hall
 Governors Complex/Residence Halls
-Abbott Hall
+Greiner Residence Hall
+HRD Building
+Hadley Village
+Harvey Field
+Helm Building
+Hochstetter Hall
+Jacobs Management Center
+Jarvis Hall
+Katharine Cornell Theatre
+Ketter Hall
+Knox Lecture Hall
+Kunz Stadium
+Lehman Hall
+Lockwood Memorial Library
+Mathematics Building
+Millard Fillmore Academic Center
+Natural Sciences Complex
+Norton Hall
+O'Brian Hall
+Park Hall
+Porter Quadrangle
+Red Jacket Quadrangle
+Richmond Quadrangle
+Roosevelt Hall
+Slee Hall
+South Lake Village
+Spaulding Quadrangle
+Statler Commissary
+Student Union
+Sy Lecture Hall
+Talbert Hall
+UB Stadium
+Wilkeson Quadrangle
 Acheson Annex
 Annex A
 Annex B
@@ -53,3 +85,23 @@ Goodyear Hall
 Harriman Hall
 Hayes A
 Hayes B
+Hayes C
+Hayes D
+Hayes Hall
+Howe Building
+Kapoor Hall
+Kimball Tower
+MacDonald Hall
+Mackay Heating Plant
+Michael Hall
+Parker Hall
+Pritchard Hall
+Rotary Field
+Schoellkopf Hall
+Service Building
+Service Center Building
+Sherman Annex
+Sherman Hall
+Squire Hall
+Townsend Hall
+Wende Hall
