@@ -12,6 +12,8 @@ engine = create_engine('postgresql://janie:yolo@localhost/eventador')
 db_session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
 
 Base = declarative_base()
+# Allow querying on models directly
+Base.query = db_session.query_property()
 
 class Email(Base):
   __tablename__ = 'emails'
