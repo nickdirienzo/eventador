@@ -18,10 +18,14 @@ class EventadorEncoder(JSONEncoder):
 app = flask.Flask(__name__)
 app.json_encoder = EventadorEncoder
 
+@app.route('/')
+def splash():
+  return flask.render_template('index.html')
+
 @app.route('/<string:domain>')
 def index(domain):
   domains = Email.query.group_by(Email.domain).with_entities(Email.domain).all()
-  return flask.render_template('index.html', domains=domains, selected=domain)
+  return flask.render_template('calendar.html', domains=domains, selected=domain)
 
 @app.route('/<string:domain>/events')
 def events(domain):

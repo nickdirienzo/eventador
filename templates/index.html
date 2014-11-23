@@ -18,54 +18,22 @@
   </head>
   <body>
     
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Eventador</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">buffalo.edu <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              {% for domain in domains %}
-              {% if domain[0] == selected %}
-              <li><a href="/{{ domain[0] }}"><strong>{{ domain[0] }}</strong></a></li>
-              {% else %}
-              <li><a href="/{{ domain[0] }}">{{ domain[0] }}</a></li>
-              {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="container-fluid">
+     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-8">
-          <div id="calendar"></div>
-        </div>
-        <div class="col-md-4">
-          <h2>Search</h2>
-          <form id="search-box">
-            <input type="text" id="query" placeholder="Search here..." />
-            <input type="hidden" id="domain" value="{{ selected }}" />
-            <input type="submit" />
-          </form>
-          <hr />
-          <div id="results"></div>
+        <div class="col-md-12 text-center">
+          <h1>Eventador</h1>
+          <h2>A smarter way to organize events.</h2>
+          <p class="lead">Eventador is an email robot that understands the messages being sent.</p>
+          <p class="lead">It will create calendar events automatically from the date, time, and location already written in the email.</p> 
+          <p class="lead">And create a search engine for the events created.</p> 
+          <p class="lead">Check out how <a href="/buffalo.edu">buffalo.edu</a> uses it!</p>
         </div>
       </div>
     </div>
     
     <script src="/static/jquery.js"></script>
-    <script src="/static/moment.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.0/fullcalendar.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.0/fullcalendar.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.0/fullcalendar.print.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="/static/eventador.js"></script>
 
   </body>
 </html>
