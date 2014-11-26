@@ -1,4 +1,13 @@
+Flask==0.10.1
+Jinja2==2.7.3
+MarkupSafe==0.23
 SQLAlchemy==0.9.8
+Werkzeug==0.9.6
 gmail-client==0.0.7.1
+itsdangerous==0.24
+nltk==3.0.0
 parsedatetime==1.4
+psycopg2==2.5.4
+redis==2.10.3
+sqlalchemy-citext==1.2-0
 wsgiref==0.1.2
