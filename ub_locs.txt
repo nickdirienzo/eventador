@@ -14,24 +14,25 @@ Campus Mail Center
 Capen Hall
 Center for Tomorrow
 Center for the Arts
+CFA
 Child Care Center
 Clemens Hall
 Clinton Hall
-Commons, The
+The Commons
 Computing Center
 Cooke Hall
 Creekside Village
 Crofts Hall
 Davis Hall
 Dewey Hall
-Dorsheimer Laboratory/Greenhouse
-Ellicott Complex/Residence Halls
+Dorsheimer Laboratory
+Ellicott Complex
 Fargo Quadrangle
 Flickinger Court
 Flint Village
 Fronczak Hall
 Furnas Hall
-Governors Complex/Residence Halls
+Governors Complex
 Greiner Residence Hall
 HRD Building
 Hadley Village
@@ -61,6 +62,7 @@ South Lake Village
 Spaulding Quadrangle
 Statler Commissary
 Student Union
+SU
 Sy Lecture Hall
 Talbert Hall
 UB Stadium

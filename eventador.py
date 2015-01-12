@@ -1,6 +1,7 @@
 import flask
 from flask.json import JSONEncoder
 
+import locations
 from models import Email
 
 class EventadorEncoder(JSONEncoder):
@@ -49,4 +50,6 @@ def search(domain):
   return flask.jsonify(emails=emails) 
 
 if __name__ == '__main__':
+  locations.init()
+  locations.load('ub_locs.txt', domain='buffalo.edu')
   app.run(debug=True)
