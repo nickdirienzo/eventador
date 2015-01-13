@@ -20,7 +20,7 @@ def init():
 
 def load(fp, domain=None):
   if not domain:
-      raise NoDomainSupplied("'domain' cannot be Falsey.")
+      raise NoDomainSupplied("'domain' cannot be None.")
 
   with open(fp, 'r') as f:
       for line in f.readlines():
@@ -35,19 +35,19 @@ def load(fp, domain=None):
 
 def add_location(domain=None, location=None):
   if not domain:
-      raise NoDomainSupplied("'domain' cannot be Falsey.")
+      raise NoDomainSupplied("'domain' cannot be None.")
 
   if not location:
-      raise NoLcationSupplied("'location' cannot be Falsey.")
+      raise NoLcationSupplied("'location' cannot be None.")
 
   redis_connection.sadd(domain, location)    
 
 
 def is_location(domain=None, maybe_location=None):
   if not domain:
-      raise NoDomainSupplied("'domain' cannot be Falsey.")
+      raise NoDomainSupplied("'domain' cannot be None.")
 
   if not maybe_location:
-      raise NoLcationSupplied("'location' cannot be Falsey.")
+      raise NoLcationSupplied("'location' cannot be None.")
 
   return redis_connection.sismember(domain, maybe_location)
