@@ -7,6 +7,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
 
+# For full-text search on emails
+from sqlalchemy_utils.types import TSVectorType
+from sqlalchemy_searchable import make_searchable
+
 # creates engine that stores data in local postgres server		
 engine = create_engine('postgresql://janie:yolo@localhost/eventador')
 db_session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
@@ -14,6 +18,9 @@ db_session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind
 Base = declarative_base()
 # Allow querying on models directly
 Base.query = db_session.query_property()
+
+# Use sqlalchemy-searchable
+make_searchable()
 
 class Email(Base):
   __tablename__ = 'emails'
@@ -28,6 +35,7 @@ class Email(Base):
   start_time = Column(DateTime)
   end_time = Column(DateTime)
   location = Column(Text)
+  search_vector = Column(TSVectorType('text', 'subject', 'location'))
 
   def __init__(self, html=None, text=None, domain=None, author_address=None, author_name=None, subject=None):
     self.html = html # email body
@@ -78,8 +86,3 @@ def init_db():
 
 if __name__ == '__main__':
   init_db()
-#
-#  import eventador_mailbot
-#  m = eventador_mailbot.Mailbot()
-#  unread = m.client.inbox().mail(unread=True, prefetch=True)
-#  parseEmail(unread)
